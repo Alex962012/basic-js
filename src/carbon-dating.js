@@ -33,6 +33,7 @@ let res=(Math.log(15/sampleActivity)).toFixed(4)/a
 
 return (Math.ceil(res))
 }
+
 }
 module.exports = {
   dateSample
