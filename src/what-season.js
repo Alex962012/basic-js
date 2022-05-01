@@ -12,36 +12,46 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(season) {
-     
-//   if (season instanceof Date){
-//     if(season.getFullYear()<1970){
-//         let b=season.getFullYear()
+  console.log(typeof(season))
+ 
+  if(season===undefined){
+    return 'Unable to determine the time of year!'
+  } 
+  if(typeof season=='string'||Array.isArray(season)|| typeof season=="number"||Object.prototype.toString.call(season) !== '[object Date]'){
+    throw new Error ("Invalid date!")
+  }
+  if ((season instanceof Date === false || Object.getOwnPropertyNames(season).length > 0) && arguments.length > 0) {
+    throw new Error('Invalid date!');
+}
+  if (season instanceof Date){
+    if(season.getFullYear()<1970){
+        let b=season.getFullYear()
 
-//         season.setFullYear(b+1000)
-//     }
+        season.setFullYear(b+1000)
+    }
     
-// if(season.getMonth()==1||season.getMonth()==11||season.getMonth()==0){
-//     return 'winter'
-// }
-// if(season.getMonth()==2||season.getMonth()==3||season.getMonth()==4){
-//     return 'spring'
-// }
-// if(season.getMonth()==5||season.getMonth()==6||season.getMonth()==7){
-//     return 'summer'
-// }
-// if(season.getMonth()==8||season.getMonth()==9||season.getMonth()==10){
-//     return 'autumn'
-// }
-// else if(season===''){
-//     return 'corretly handles argument absence'
-//   }
+if(season.getMonth()==1||season.getMonth()==11||season.getMonth()==0){
+    return 'winter'
+}
+if(season.getMonth()==2||season.getMonth()==3||season.getMonth()==4){
+    return 'spring'
+}
+if(season.getMonth()==5||season.getMonth()==6||season.getMonth()==7){
+    return 'summer'
+}
+if(season.getMonth()==8||season.getMonth()==9||season.getMonth()==10){
+    return 'autumn'
+}
+else if(season===''){
+    return 'corretly handles argument absence'
+  }
   
 
 
-// }
-// else {
-//     return 'Invalid date!'
-// }
+}
+else {
+     throw new Error( 'Invalid date!')
+}
 }
 
 module.exports = {
