@@ -15,14 +15,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function transform( arr ) {
   let arr2=[]
-  console.log(arr)
-     if(arr===null||typeof (arr)!=="object"||arr==undefined) {
-         return '\'arr\' parameter must be an instance of the Array!'
+ 
+     if(arr===null||!Array.isArray(arr)||arr==undefined) {
+      throw new Error( '\'arr\' parameter must be an instance of the Array!')
      }
      for( let i=0; i<arr.length;i++){
-         if(arr[i]==undefined){
-           continue
-         }
+        //  if(arr[i]==undefined){
+        //    continue
+        //  }
          if(arr[i]=='--double-next'){
          arr2.push(arr[i+1])
             
