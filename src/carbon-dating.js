@@ -23,16 +23,16 @@ function dateSample(sampleActivity ) {
     return false
   }
   else{
-  let a=(0.693/5730).toFixed(8) 
-let res=(Math.log(15/sampleActivity)).toFixed(4)/a
-      if(isNaN(Math.ceil(res))||(Math.ceil(res))===Infinity||(Math.ceil(res))<0){
-          return false
-      }
-      
-          
+let a=0.693/HALF_LIFE_PERIOD;
+let res=(Math.log(MODERN_ACTIVITY/+sampleActivity))/a
 
-return (Math.ceil(res))
-}
+if(isNaN(Math.ceil(res))||(Math.ceil(res))===Infinity||(Math.ceil(res))<0){
+            return false
+        }
+
+
+return Math.ceil(res)
+ }
 
 }
 module.exports = {
