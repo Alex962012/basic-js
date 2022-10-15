@@ -16,16 +16,40 @@ class DepthCalculator {
   calculateDepth(arr) {
     
 
+// let score=0
+// if(Array.isArray(arr)){
+//   score=+1
+// }
+// function flat (arr){
+// arr.forEach((item)=>{
+
+//  if(Array.isArray(item)){
+//    flat(item)
+//    score=score+1
+  
+//  }
+// })
+
+// }
+
+// flat(arr)
+// return score
+//   }
 let score=0
 if(Array.isArray(arr)){
   score=+1
+
 }
 function flat (arr){
 arr.forEach((item)=>{
-
+  
  if(Array.isArray(item)){
-   flat(item)
-   score=score+1
+  if(item.length=0){
+    return
+  }
+  else{ flat(item)
+    score=score+1}
+ 
   
  }
 })
